@@ -1,0 +1,34 @@
+#include<graphics.h>
+#include<conio.h>
+#include<math.h>
+main(){
+  int grdrv=DETECT, grmod,size;
+  initgraph(&grdrv,&grmod, "C:\\TC\\BGI");
+  setbkcolor(CYAN);
+  int x=0,y=getmaxy()*4/5-10;
+  void *buf;
+  cleardevice();
+  setcolor(BLUE);
+  setfillstyle(SOLID_FILL, BLUE);
+  bar(0,getmaxy()*4/5,getmaxx()+1,getmaxy()+1);
+  setcolor(DARKGRAY);
+  setfillstyle(SOLID_FILL, DARKGRAY);
+  int base[] = {x, y, x + 100, y, x + 80, y+20, x + 20, y+20};
+  fillpoly(4, base);
+  setcolor(BLACK);
+  setfillstyle(SOLID_FILL, WHITE); 
+  arc(50,getmaxy()*4/5-50,-90,90,30);
+  arc(20,getmaxy()*4/5-50,-90,90,30); 
+  line(20,getmaxy()*4/5-80,50,getmaxy()*4/5-80);
+  line(20,getmaxy()*4/5-20,50,getmaxy()*4/5-20);
+  line(55,getmaxy()*4/5-50,55,getmaxy()*4/5);
+  floodfill(60,getmaxy()*4/5-50 , BLACK);
+  buf=malloc(size);
+  getimage(0,getmaxy()*4/5-90,110,getmaxy()*4/5+20, buf);
+  setfillstyle(1, CYAN);
+  for(int i=1;i<=getmaxx();i++){
+    bar(i - 1,getmaxy()*4/5-90,110,getmaxy()*4/5);
+    putimage(i, getmaxy()*4/5-90, buf, COPY_PUT);
+    delay(10);}
+  closegraph();
+}

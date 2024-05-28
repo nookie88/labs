@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<math.h>
+#include<graphics.h>
+#include<conio.h>
+#include<dos.h>
+main(){
+	float a = 5;
+	int x = 0;
+	int grdrv=DETECT, grmod;
+	initgraph(&grdrv,&grmod, "C:\\TC\\BGI");
+	setbkcolor(BLACK);
+	setcolor(GREEN);
+	line(5,10,600,10);
+	line(5,460,600,460);
+	line(5,460,5,10);
+	line(600,460,600,10);
+	setcolor(WHITE);
+	line(5,getmaxy()/2,600,getmaxy()/2);
+	for(float i = 0; i<=3*M_PI;i+=0.1){
+		float b = sin(i);
+		a = a+(getmaxx()/91);
+		setcolor(RED);
+		line(a,getmaxy()/2,a,(getmaxy()/2)-(b*200));
+		delay(10);
+	}
+	getch();
+	closegraph();}

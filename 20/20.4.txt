@@ -1,0 +1,28 @@
+ #include <graphics.h>  
+#include <conio.h>
+int main() {
+    int gd = DETECT, gm;  
+    initgraph(&gd, &gm, "");  
+    int x = getmaxx()/2, y = getmaxy()/2;
+    int dx = 1, dy = 1, r = 15; 
+    while (!kbhit()) {
+        cleardevice();  
+        int color = RED;
+        circle(x, y, r); 
+        x += dx; 
+        y += dy;  
+        delay(2);  
+        if (x <= r || x >= getmaxx()-r) {
+            dx = -dx;
+            color = WHITE;
+            setcolor(color);
+        }
+        if (y <= r || y >= getmaxy()-r) {
+            dy = -dy; 
+            color= RED;
+            setcolor(color);  
+        }
+    }
+    closegraph();  // Закриття графічного вікна
+        return 0;  
+}

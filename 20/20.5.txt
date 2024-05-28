@@ -1,0 +1,21 @@
+#include <graphics.h>
+#include <conio.h>
+main(){
+	int xr=100;
+	int gd = DETECT, gm; 
+    initgraph(&gd, &gm, "");
+    setcolor(WHITE);
+    while (!kbhit()) {
+        for (xr = 100; xr >= 0; xr-=2) {
+        	cleardevice();
+        	fillellipse(getmaxx()/2, getmaxy()/2, xr, 100);
+			delay(20);
+        }
+        for (xr = 0; xr <= 100; xr+=2) {
+        	cleardevice();
+        	fillellipse(getmaxx()/2, getmaxy()/2, xr, 100);
+			delay(20);
+        }
+	}
+	closegraph();
+}
