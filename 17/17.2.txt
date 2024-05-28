@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+// Функція для обчислення суми додатних елементів масиву
+int sumPositive(int array[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        if (array[i] > 0) {
+            sum += array[i];
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int array[10];
+    
+    // Зчитування елементів масиву з клавіатури
+    printf("Введіть 10 цілих чисел:\n");
+    for (int i = 0; i < 10; i++) {
+        scanf("%d", &array[i]);
+    }
+    
+    // Обчислення суми додатних елементів за допомогою функції sumPositive
+    int result = sumPositive(array, 10);
+    
+    // Виведення результату на екран
+    printf("Сума додатних елементів масиву: %d\n", result);
+    
+    return 0;
+}
