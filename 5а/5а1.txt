@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+// Функція для обчислення факторіалу числа
+unsigned long long factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int N = 10; // Введіть значення N
+    int M = 5;
+    unsigned long long M_factorial, N_factorial, MN_factorial;
+    double F;
+
+    // Обчислення факторіалів M, N та M+N
+    M_factorial = factorial(M);
+    N_factorial = factorial(N);
+    MN_factorial = factorial(M + N);
+
+    // Обчислення виразу F
+    F = (double)(M_factorial + N_factorial) / MN_factorial;
